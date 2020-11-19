@@ -1,7 +1,7 @@
 export default {
     users: [
-        {amazina:'Christophe Kabundege',itorero_ryibanze:'karugira',phonenumber:'+250784824295'},
-        {amazina:'Jeannette Uwimana',itorero_ryibanze:'karugira',phonenumber:'+250788649666'}
+        {amazina:'Christophe Kabundege',itorero_ryibanze:'karugira',role:'Christian',phonenumber:'+250784824295'},
+        {amazina:'Jeannette Uwimana',itorero_ryibanze:'karugira',role:'Pastor',phonenumber:'+250788649666'}
     ],
     sundays: {
         15: [

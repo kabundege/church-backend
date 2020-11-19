@@ -16,15 +16,6 @@
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.6",
-    "pg": "^7.18.2"
-  },
-  "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/node": "^7.8.7",
@@ -34,6 +25,15 @@
     "@babel/preset-env": "^7.9.0",
     "@babel/register": "^7.9.0",
     "babel-register": "^6.26.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6",
+    "pg": "^7.18.2"
+  },
+  "devDependencies": {
     "sequelize-cli": "^5.5.1"
   }
 }

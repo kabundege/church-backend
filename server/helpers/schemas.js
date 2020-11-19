@@ -13,7 +13,7 @@ export const SignUp = Joi.object({
 
 export const Book = Joi.object({
     paruwasi: Joi.string().pattern(/^[a-zA-Z0-9 *]{3,25}$/).required(),
-    amazina: Joi.string().pattern(/^[a-zA-Z0-9 *]{3,25}$/).required(),
+    amazina: Joi.string().pattern(/^[a-zA-Z0-9 *]{3,25}$/),
     service: Joi.number().required(),   
     });
 

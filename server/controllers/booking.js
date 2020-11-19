@@ -16,24 +16,26 @@ export default class Books {
             date += 7 - today; 
         }
 
+        const names = amazina || req.userData.amazina;
+
         if(db.sundays[date]){
             for(const el of db.sundays[date]){
-                if(el.phonenumber === phonenumber && el.amazina === amazina){
+                if(el.phonenumber === phonenumber && el.amazina === names){
                     booked = true;
                 }
             }
-            data = [{...req.body,phonenumber},...db.sundays[date]]
+            data = [{...req.body,amazina:names,phonenumber},...db.sundays[date]]
         }else{
-            data = [{...req.body,phonenumber}]
+            data = [{...req.body,amazina:names,phonenumber}]
         }
 
         if(booked){
-            utils.setError(403,'Not Allowed To Book Twice')
+            utils.setError(403,'Ntabwo Wakwiyandika Kabiri')
             return utils.send(res)
         }
 
         db.sundays[date] = data;
-        utils.setSuccess(200,'Booking Success')
+        utils.setSuccess(200,'Booking Success',data)
         return utils.send(res)
     }
 

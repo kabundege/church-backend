@@ -35,7 +35,7 @@ export default class Books {
         }
 
         db.sundays[date] = data;
-        utils.setSuccess(200,'Booking Success',data)
+        utils.setSuccess(201,'Booking Success',{...data,date})
         return utils.send(res)
     }
 

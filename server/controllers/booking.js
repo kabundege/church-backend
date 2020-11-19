@@ -35,7 +35,7 @@ export default class Books {
         }
 
         db.sundays[date] = data;
-        utils.setSuccess(201,'Booking Success',{...data,date})
+        utils.setSuccess(201,'Booking Success',{...req.body,amazina:names,date})
         return utils.send(res)
     }
 

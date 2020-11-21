@@ -8,6 +8,6 @@ const router = Router();
 
 router.post('/books', authorizationCheck, role('Christian','Manager', 'Pastor'), validate.BookingValidation, Books.Book)
 
-router.get('/books', authorizationCheck, role('Manager', 'Pastor'), Books.GetAllBooks)
+router.get('/books', authorizationCheck, role('Christian','Manager', 'Pastor'), Books.GetAllBooks)
 
 export default router;

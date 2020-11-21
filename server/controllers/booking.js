@@ -11,6 +11,7 @@ export default class Books {
         const today = new Date(timeStamp).getDay();
         let date = new Date(timeStamp).getDate();
         let month = new Date(timeStamp).getMonth();
+        let year = new Date(timeStamp).getFullYear();
         const { phonenumber,itorero_ryibanze } = req.userData;
         const { amazina } = req.body;
 
@@ -20,7 +21,12 @@ export default class Books {
 
         if(date > 31){
             date = date - 31;
-            month = month + 2; 
+            if(month === 11){
+                month = 1;
+                year += 1; 
+            }else{
+                month = month + 2; 
+            }
         }else{
             month = month + 1; 
         }
@@ -31,11 +37,10 @@ export default class Books {
             if(
                 user.phonenumber === phonenumber && 
                 user.amazina === names && 
-                new Date(user.timeStamp).getDate() === date &&
-                new Date(user.timeStamp).getMonth() === month
+                user.date=== date &&
+                user.month === month &&
+                user.year === year
             ){ booked = true }
-            console.log(new Date(user.timeStamp).getDate() === date,
-            new Date(user.timeStamp).getMonth() === month)
         }
 
         if(booked){
@@ -43,7 +48,7 @@ export default class Books {
             return utils.send(res)
         }
 
-        db.sundays.push({...req.body,itorero_ryibanze,amazina:names,phonenumber,timeStamp});
+        db.sundays.push({...req.body,itorero_ryibanze,amazina:names,phonenumber,date,month,year,timeStamp});
         utils.setSuccess(201,'Booking Success',{...req.body,amazina:names,date: `${date}/${month}/${new Date().getFullYear()}`})
         return utils.send(res)
     }

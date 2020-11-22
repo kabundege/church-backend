@@ -14,13 +14,42 @@ export default class Books {
         let year = new Date(timeStamp).getFullYear();
         const { phonenumber,itorero_ryibanze } = req.userData;
         const { amazina } = req.body;
-
+        const lastdate = () => {
+            let result = 0;
+            if(month === 0){
+                result = 31;
+            }else if(month === 1){
+                result = 28
+            }else if(month === 2){
+                result = 31
+            }else if(month === 3){
+                result = 30
+            }else if(month === 4){
+                result = 31
+            }else if(month === 5){
+                result = 30
+            }else if(month === 6){
+                result = 31
+            }else if(month === 7){
+                result = 31
+            }else if(month === 8){
+                result = 30
+            }else if(month === 9){
+                result = 31
+            }else if(month === 10){
+                result = 30
+            }else if(month === 11){
+                result = 31
+            }
+            return result;
+        }
+ 
         if(7 > today){
             date += 7 - today; 
         }
 
-        if(date > 31){
-            date = date - 31;
+        if(date >= lastdate()){
+            date = date - lastdate() ? date - lastdate() : 1;
             if(month === 11){
                 month = 1;
                 year += 1; 
